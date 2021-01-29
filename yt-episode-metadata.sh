@@ -1,6 +1,8 @@
 ##/bin/bash
 YT_DIR="/mnt/storage/media/youtube/"
 IFS=$'\n'
+count1=0
+count2=0
 
 cd "$YT_DIR"
 
@@ -9,10 +11,15 @@ do
     noext=${i%.*.*}
     if [[ -e "$noext.metadata" ]]; then
         #echo "Skipping, metadata already exists."
+        count1=$((count1+1))
         :
     else
         #echo "Creating metadata for `basename \"$noext\"`."
         cat "$i"  | jq -r '"[metadata]","title="+.title,"summary="+.description,"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8],"writers="+.uploader,"directors="+.uploader' > "$noext.metadata"
+        count2=$((count2+1))
     fi
 done
+
+echo "$count2 metadata files were created and $count1 pre-existing files were skipped."
+
 unset IFS
