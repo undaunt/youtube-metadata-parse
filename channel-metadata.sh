@@ -8,7 +8,8 @@ cd "$YT_DIR"
 
 for i in $(find . -type f -name "*Channel Info*.info.json")
 do
-    folder=$(realpath $i)
+    file=$(realpath $i)
+    folder=$(dirname $file)
     if [[ -e "show.metadata" ]]; then
         count1=$((count1+1))
         :
