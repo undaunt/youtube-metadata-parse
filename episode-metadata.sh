@@ -6,7 +6,7 @@ count2=0
 
 cd "$YT_DIR"
 
-for i in $(find . -type f -name "*.info.json" -not -name "*S01E00*" -not -path "*/SNA/*")
+for i in $(find . -type f -name "*.info.json" -not -name "*Channel Info*" -not -name "*Playlist Info*")
 do
     noext=${i%.*.*}
     if [[ -e "$noext.metadata" ]]; then
