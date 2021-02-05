@@ -20,6 +20,6 @@ done
 
 time=$(date +'%m/%d/%Y %r')
 
-echo "time - $count2 metadata files were created and $count1 pre-existing files were skipped."
+echo "$time - $count2 metadata files were created and $count1 pre-existing files were skipped."
 
 unset IFS
