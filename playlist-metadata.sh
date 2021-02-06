@@ -8,12 +8,13 @@ cd "$YT_DIR"
 
 for i in $(find . -type f -name "*Playlist Info*.info.json")
 do
-    noext=${i%.*.*}
-    if [[ -e "$noext.metadata" ]]; then
+    file=$(realpath "$i")
+    folder=$(dirname "$file")
+    if [[ -e "$folder/show.metadata" ]]; then
         count1=$((count1+1))
         :
     else
-        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary=","release=","studio=YouTube","genres=","collections="+.channel,"actors="+.uploader' > "$noext.metadata"
+        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary=","release=","studio=YouTube","genres=","collections="+.channel,"actors="+.uploader' > "$folder/show.metadata"
         count2=$((count2+1))
     fi
 done

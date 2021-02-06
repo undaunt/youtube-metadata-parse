@@ -10,7 +10,7 @@ for i in $(find . -type f -name "*Channel Info*.info.json")
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
-    if [[ -e "show.metadata" ]]; then
+    if [[ -e "$folder/show.metadata" ]]; then
         count1=$((count1+1))
         :
     else
