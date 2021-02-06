@@ -2,7 +2,7 @@
 
 A simple script to scrape .json.info files from [youtube-dlc](https://github.com/pukkandan/yt-dlp) and create a .metadata file for each. This can be used to populate the fields required by https://bitbucket.org/mjarends/extendedpersonalmedia-agent.bundle.
 
-Currently, it creaets a metadata file per episode with the same name as the JSON file within a given playlist or channel folder. It also creates a show.metadata file in each playlist or channel folder.
+Currently, it creates a metadata file per episode with the same name as the JSON file within a given playlist or channel folder. It also creates a show.metadata file in each playlist or channel folder.
 
 Update the directory of YT_DIR on line 2 to your repository of YouTube content.
 
