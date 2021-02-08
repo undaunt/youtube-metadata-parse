@@ -22,8 +22,8 @@ do
     else
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
-        curl -o "$folder/poster.jpg" "$shorturl" --silent
         echo "$(format_date) - Grabbing playlist thumbnail for $playlist."
+        curl -o "$folder/poster.jpg" "$shorturl"
         count2=$((count2+1))
     fi
 done
@@ -43,8 +43,8 @@ do
     else
         url=$( jq -r '[.thumbnails[] | .url][0]' )
         shorturl=${url%\=*}
-        curl -o "$folder/poster.jpg" "$shorturl" --silent
         echo "$(format_date) - Grabbing channel thumbnail for $channel."
+        curl -o "$folder/poster.jpg" "$shorturl"
         count2=$((count2+1))
     fi
 done
