@@ -14,7 +14,7 @@ do
     folder=$(dirname "$file")
     basepath=$(basename "$folder")
     trim=${basepath%[*}
-    playlist=${trim???}
+    playlist=${trim%???}
     echo "$playlist"
     if [[ -e "$folder/poster.jpg" ]]; then
         count1=$((count1+1))
