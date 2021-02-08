@@ -23,5 +23,6 @@ do
 done
 
 echo "$(format_date) - $count2 episode metadata files were created and $count1 pre-existing files were skipped."
+sleep 1
 
 unset IFS
