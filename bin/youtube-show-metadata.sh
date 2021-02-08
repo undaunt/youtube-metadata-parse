@@ -23,6 +23,6 @@ do
     fi
 done
 
-echo "$(format_date) - $count2 show metadata files were created and $count1 pre-existing files were skipped."
+echo "$(format_date) - $count2 playist metadata files were created and $count1 pre-existing files were skipped."
 
 unset IFS

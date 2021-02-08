@@ -15,5 +15,6 @@ Currently, it creates a metadata file per episode with the same name as the JSON
 * Pull the date of the first episode in a playlist to populate release date on show metadata
 * Same as above, but with a check on the channel (date based) seasons for the first season release date
 * append with sed (or similar) the categories and tags data from a show's episode files into the show.metadata
+* Add episode based full size thumbnails as alternate series/playlist thumbnails
 
 If anyone can assist with the to-do list, please feel free to open an issue or a pull request. I'll be uploading my current youtube-dlc configuration soon for reference purposes.
