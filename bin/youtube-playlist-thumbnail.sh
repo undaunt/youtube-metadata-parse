@@ -23,14 +23,14 @@ do
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
         echo "$(format_date) - Grabbing playlist thumbnail for $playlist."
-        curl -o "$folder/poster.jpg" "$shorturl"
+        curl -o "$folder/poster.jpg" "$shorturl" -s
         count2=$((count2+1))
     fi
 done
 
 echo "$(format_date) - $count2 playlist poster thumbnails were downloaded and $count1 pre-existing posters were skipped."
 echo "$(format_date) - Executing the channel thumbnail job."
-sleep 1
+sleep 2
 
 for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -path "*[UC*")
 do
@@ -45,11 +45,11 @@ do
         url=$( jq -r '[.thumbnails[] | .url][0]' $i )
         shorturl=${url%\=*}
         echo "$(format_date) - Grabbing channel thumbnail for $channel."
-        curl -o "$folder/poster.jpg" "$shorturl"
+        curl -o "$folder/poster.jpg" "$shorturl" -s
         count2=$((count2+1))
     fi
 done
 echo "$(format_date) - $count2 channel poster thumbnails were downloaded and $count1 pre-existing posters were skipped."
-sleep 1
+sleep 2
 
 unset IFS
