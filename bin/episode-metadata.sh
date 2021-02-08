@@ -1,5 +1,5 @@
 ##/bin/bash
-YT_DIR="/mnt/storage/media/youtube/"
+YT_DIR="$MEDIADIR/youtube"
 IFS=$'\n'
 count1=0
 count2=0
