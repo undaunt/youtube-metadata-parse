@@ -38,10 +38,10 @@ echo "$time - Executing the youtube-dlc playlist job."
 
 playlist_dl
 
-youtube-episode-metadata.sh
+"$STORAGEDIR/bin/youtube-episode-metadata.sh"
 
 echo "$time - Executing the show metadata job."
 
-youtube-show-metadata.sh
+"$STORAGEDIR/bin/youtube-show-metadata.sh"
 
     echo "$time - All youtube-dlc jobs are now complete."
