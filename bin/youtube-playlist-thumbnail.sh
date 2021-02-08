@@ -16,7 +16,7 @@ do
         :
     else
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' info.json )
-        shorturl=${$url%\?*}
+        shorturl=${url%\?*}
         echo "URL is $url."
         echo "Short URL is $shorturl."
         curl -o "$folder/poster.jpg" "$shorturl"
