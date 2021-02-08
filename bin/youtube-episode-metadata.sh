@@ -1,10 +1,10 @@
 ##/bin/bash
-YT_DIR="$MEDIADIR/youtube"
+
 IFS=$'\n'
 count1=0
 count2=0
 
-cd "$YT_DIR"
+cd "$MEDIADIR/youtube"
 
 for i in $(find . -type f -name "*.info.json" -not -name "*Channel Info*" -not -name "*Playlist Info*")
 do
@@ -20,6 +20,6 @@ done
 
 time=$(date +'%m/%d/%Y %r')
 
-echo "$time - $count2 metadata files were created and $count1 pre-existing files were skipped."
+echo "$time - $count2 episode metadata files were created and $count1 pre-existing files were skipped."
 
 unset IFS
