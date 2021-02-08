@@ -17,7 +17,7 @@ do
     else
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
-        curl -o "$folder/poster.jpg" "$shorturl"
+        curl -o "$folder/poster.jpg" "$shorturl" --silent
         count2=$((count2+1))
     fi
 done
