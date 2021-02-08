@@ -3,7 +3,6 @@
 IFS=$'\n'
 count1=0
 count2=0
-time=$(date +'%m/%d/%Y %r')
 
 cd "$MEDIADIR/youtube"
 
@@ -20,11 +19,13 @@ do
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
         curl -o "$folder/poster.jpg" "$shorturl" --silent
+        local time=$(date +'%m/%d/%Y %r')
         echo "$time - Grabbing playlist thumbnail for $playlist."
         count2=$((count2+1))
     fi
 done
 
+time=$(date +'%m/%d/%Y %r')
 echo "$time - $count2 show metadata files were created and $count1 pre-existing files were skipped."
 
 unset IFS
