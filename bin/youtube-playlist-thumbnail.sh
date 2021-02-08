@@ -20,7 +20,7 @@ do
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
         curl -o "$folder/poster.jpg" "$shorturl" --silent
-        echo "Grabbing playlist thumbnail for $playlist."
+        echo "$time - Grabbing playlist thumbnail for $playlist."
         count2=$((count2+1))
     fi
 done
