@@ -5,7 +5,7 @@ count1=0
 count2=0
 url=
 
-cd "$MEDIADIR/youtube"
+#cd "$MEDIADIR/youtube"
 
 for i in $(find . -type f -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*")
 do
@@ -15,7 +15,10 @@ do
         count1=$((count1+1))
         :
     else
-        url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
+        url=$( jq -r '.thumbnails[] | select(.url|test("maxresdefault")) | .url' $i )
+        if [[ -z "$url" ]]; then
+          url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
+        fi
         shorturl=${url%\?*}
         echo "URL is $url."
         echo "Short URL is $shorturl."
