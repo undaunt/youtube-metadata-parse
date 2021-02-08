@@ -15,7 +15,7 @@ do
     basepath=$(basename "$folder")
     trim=${basepath%[*}
     playlist=${trim%???}
-    echo "$playlist"
+
     if [[ -e "$folder/poster.jpg" ]]; then
         count1=$((count1+1))
         :
@@ -23,7 +23,7 @@ do
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
         curl -o "$folder/poster.jpg" "$shorturl" --silent
-        echo "Grabbing playlist thumbnail for $folder."
+        echo "Grabbing playlist thumbnail for $playlist."
         count2=$((count2+1))
     fi
 done
