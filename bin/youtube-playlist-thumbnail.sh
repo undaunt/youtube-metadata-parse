@@ -7,7 +7,8 @@ url=
 
 cd "$MEDIADIR/youtube"
 
-for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -not -path "*[UC*" )
+# Grab all thumbnails from the playlist level
+for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -not -path "*[UC*")
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
