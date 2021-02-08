@@ -44,4 +44,4 @@ echo "$time - Executing the show metadata job."
 
 "$STORAGEDIR/bin/youtube-show-metadata.sh"
 
-    echo "$time - All youtube-dlc jobs are now complete."
+echo "$time - All youtube-dlc jobs are now complete."
