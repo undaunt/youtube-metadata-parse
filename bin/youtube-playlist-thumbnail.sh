@@ -3,7 +3,7 @@
 IFS=$'\n'
 count1=0
 count2=0
-url=
+time=$(date +'%m/%d/%Y %r')
 
 cd "$MEDIADIR/youtube"
 
@@ -24,8 +24,6 @@ do
         count2=$((count2+1))
     fi
 done
-
-time=$(date +'%m/%d/%Y %r')
 
 echo "$time - $count2 show metadata files were created and $count1 pre-existing files were skipped."
 
