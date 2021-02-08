@@ -19,8 +19,8 @@ do
         url2=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url2%\?*}
         echo "URL1 is $url1"
-        echo "URL2 is $url2"
-        echo "Short URL is $shorturl."
+        #echo "URL2 is $url2"
+        echo "Short URL is $shorturl"
         curl -o "$folder/poster.jpg" "$shorturl"
         #count2=$((count2+1))
     fi
