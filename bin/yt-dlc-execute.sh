@@ -30,9 +30,3 @@ if [[ $NEW_DL == 1 ]]; then
 else
   echo "All playlist and channels are currently up to date."
 fi
-
-
-
-time=$(date +'%m/%d/%Y %r')
-
-echo "$time - $count2 metadata files were created and $count1 pre-existing files were skipped."
