@@ -4,6 +4,10 @@ IFS=$'\n'
 count1=0
 count2=0
 
+format_date() {
+  date "+%m/%d/%Y %H:%M:%S"
+}
+
 cd "$MEDIADIR/youtube"
 
 for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -not -path "*[UC*")
@@ -19,13 +23,11 @@ do
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
         curl -o "$folder/poster.jpg" "$shorturl" --silent
-        time=$(date +'%m/%d/%Y %r')
-        echo "$time - Grabbing playlist thumbnail for $playlist."
+        echo "$(format_date) - Grabbing playlist thumbnail for $playlist."
         count2=$((count2+1))
     fi
 done
 
-time=$(date +'%m/%d/%Y %r')
-echo "$time - $count2 show metadata files were created and $count1 pre-existing files were skipped."
+echo "$(format_date) - $count2 show metadata files were created and $count1 pre-existing files were skipped."
 
 unset IFS
