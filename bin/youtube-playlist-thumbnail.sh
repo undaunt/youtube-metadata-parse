@@ -11,10 +11,10 @@ for i in $(find . -type f -name "*Channel Info*.info.json" -o -name "*Playlist I
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
-#    if [[ -e "$folder/poster.jpg" ]]; then
-#        count1=$((count1+1))
-#        :
-#    else
+    if [[ -e "$folder/poster.jpg" ]]; then
+        count1=$((count1+1))
+        :
+    else
         url1=$( jq -r '.thumbnails[] | select(.url|test("maxresdefault")) | .url' $i )
         url2=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url2%\?*}
@@ -23,7 +23,7 @@ do
         echo "Short URL for $i is $shorturl"
         curl -o "$folder/poster.jpg" "$shorturl"
         count2=$((count2+1))
-#    fi
+    fi
 done
 
 time=$(date +'%m/%d/%Y %r')
