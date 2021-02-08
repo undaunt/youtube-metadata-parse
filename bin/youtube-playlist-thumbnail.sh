@@ -41,7 +41,7 @@ do
         count1=$((count1+1))
         :
     else
-        url=$( jq -r '[.thumbnails[] | .url][0]' )
+        url=$( jq -r '[.thumbnails[] | .url][0] | .url' $i )
         shorturl=${url%\=*}
         echo "$(format_date) - Grabbing channel thumbnail for $channel."
         curl -o "$folder/poster.jpg" "$shorturl"
