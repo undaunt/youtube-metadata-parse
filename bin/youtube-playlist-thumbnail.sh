@@ -12,6 +12,10 @@ for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlis
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
+    basepath=$(basename "$folder")
+    trim=${basepath%[*}
+    playlist=${trim???}
+    echo "$playlist"
     if [[ -e "$folder/poster.jpg" ]]; then
         count1=$((count1+1))
         :
@@ -19,6 +23,7 @@ do
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
         curl -o "$folder/poster.jpg" "$shorturl" --silent
+        echo "Grabbing playlist thumbnail for $folder."
         count2=$((count2+1))
     fi
 done
