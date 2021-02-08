@@ -15,7 +15,7 @@ do
         count1=$((count1+1))
         :
     else
-        url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' info.json )
+        url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
         shorturl=${url%\?*}
         echo "URL is $url."
         echo "Short URL is $shorturl."
