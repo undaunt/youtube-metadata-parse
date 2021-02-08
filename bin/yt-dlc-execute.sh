@@ -46,4 +46,8 @@ echo "$(format_date) - Executing the show metadata job."
 
 "$STORAGEDIR/bin/youtube-show-metadata.sh"
 
+echo "$(format_date) - Executing the playlist thumbnail job."
+
+"$STORAGEDIR/bin/youtube-playlist-thumbnail.sh"
+
 echo "$(format_date) - All youtube-dlc jobs are now complete."
