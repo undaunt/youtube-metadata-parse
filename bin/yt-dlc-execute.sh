@@ -1,4 +1,4 @@
-##/bin/bash
+#!/bin/bash
 
 time=$(date +'%m/%d/%Y %r')
 
