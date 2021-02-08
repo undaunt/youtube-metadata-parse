@@ -7,14 +7,11 @@ url=
 
 cd "$MEDIADIR/youtube"
 
-# Grab all thumbnails from the playlist level
 for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -not -path "*[UC*")
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
-    basepath=$(basename "$folder")
-    trim=${basepath%[*}
-    playlist=${trim%???}
+    playlist=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-39 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
         count1=$((count1+1))
@@ -33,5 +30,3 @@ time=$(date +'%m/%d/%Y %r')
 echo "$time - $count2 show metadata files were created and $count1 pre-existing files were skipped."
 
 unset IFS
-
-#        url1=$( jq -r '.thumbnails[] | select(.url|test("maxresdefault")) | .url' $i )
