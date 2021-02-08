@@ -1,7 +1,7 @@
 ##/bin/bash
 
 BINDIR="$STORAGEDIR/bin"
-CONFDIR="$STORAGEDIR/conf"
+CONFDIR="$STORAGEDIR/config"
 NEW_DL=0
 
 playlist_dl () {
