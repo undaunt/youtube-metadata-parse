@@ -15,15 +15,14 @@ do
         count1=$((count1+1))
         :
     else
-        url=$( jq -r '.thumbnails[] | select(.url|test("maxresdefault")) | .url' $i )
-        if [[ -z "$url" ]]; then
-          url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
-        fi
-        shorturl=${url%\?*}
-        echo "URL is $url."
+        url1=$( jq -r '.thumbnails[] | select(.url|test("maxresdefault")) | .url' $i )
+        url2=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
+        shorturl=${url2%\?*}
+        echo "URL1 is $url1"
+        echo "URL2 is $url2"
         echo "Short URL is $shorturl."
         curl -o "$folder/poster.jpg" "$shorturl"
-        count2=$((count2+1))
+        #count2=$((count2+1))
     fi
 done
 
