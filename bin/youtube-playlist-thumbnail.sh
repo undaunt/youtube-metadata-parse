@@ -5,7 +5,7 @@ count1=0
 count2=0
 url=
 
-#cd "$MEDIADIR/youtube"
+cd "$MEDIADIR/youtube"
 
 for i in $(find . -type f -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*")
 do
