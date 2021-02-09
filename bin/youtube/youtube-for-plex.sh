@@ -27,6 +27,7 @@ playlist_check () {
   else
     echo
     echo "$(format_date) - All playlist videos were already downloaded. Executing the youtube-dlc channels job."
+    echo
     sleep 2
     channel_dl
   fi
