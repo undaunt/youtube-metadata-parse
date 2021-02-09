@@ -32,7 +32,8 @@ echo
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
     echo "d is $d"
-    local folder=$(realpath "$d")
+    folder=
+    folder=$(realpath "$d")
     echo "folder is $folder"
     cd "$folder"
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} + | sort -k 10)
