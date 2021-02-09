@@ -50,6 +50,7 @@ do
             echo "titlecount is now $titlecount"
         else
             count3=$((count3+1))
+            echo "poster already exists - $folder/poster-$titlecount"
             :
         fi
     done
