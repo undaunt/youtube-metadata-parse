@@ -21,6 +21,7 @@ playlist_check () {
     echo
     echo "$(format_date) - Some new playlist videos were downloaded."
     echo "$(format_date) - Looping through and executing the playlist job again to ensure there is no new content."
+    echo
     sleep 2
     playlist_dl
   else
@@ -33,9 +34,9 @@ playlist_check () {
 
 channel_check () {
   if [[ -e "$MEDIADIR/youtube/new.downloads" ]]; then
-    echo
     echo "$(format_date) - Some new channel videos were downloaded."
     echo "$(format_date) - Looping through and executing the channels job again to ensure there is no new content."
+    echo
     sleep 2
     channel_dl
   else
