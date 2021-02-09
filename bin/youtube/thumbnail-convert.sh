@@ -5,6 +5,7 @@ count1=0
 count2=0
 count3=0
 titlecount=1
+newcount=0
 
 format_date() {
   date "+%m/%d/%Y %H:%M:%S"
@@ -37,18 +38,18 @@ do
         file=$(realpath "$i")
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
             ln "$file" "poster-$titlecount.jpg"
+            newcount=$((newcount+1))
         else
             count3=$((count3+1))
             :
         fi
         titlecount=$((titlecount+1))
-        echo "postloop tc is $titlecount"
     done
     titlecount=1
     cd ..
 done
 
-echo "$(format_date) - $finalcount episode posters were hardlinked to series posters. $count3 existing series posters were skipped."
+echo "$(format_date) - $newcount episode posters were hardlinked to series posters. $count3 existing series posters were skipped."
 echo
 
 unset IFS
