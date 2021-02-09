@@ -31,24 +31,30 @@ echo
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
+    echo "d is $d"
     folder=$(realpath "$d")
+    echo "folder is $folder"
     cd "$folder"
-    pwd
-#    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
-#    do
-#        file=$(realpath "$i")
-#        folder=$(dirname "$file")
-#        noext=${file%.*}
-
-#        cd "$folder"
-#        if [[ ! -e "poster-$titlecount.jpg" ]]; then
-#            ln "$noext.jpg" "$folder/poster-$titlecount.jpg"
-#            titlecount=$((titlecount+1))
-#        else
-#            count3=$((count3+1))
-#            :
-#        fi
-#    done
+    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
+    echo "i is $i"
+    do
+        file=$(realpath "$i")
+        echo "file is $file"
+        noext=${file%.*}
+        echo "noext is $noext"
+        echo "poster-count is poster-$titlecount.jpg"
+        if [[ ! -e "poster-$titlecount.jpg" ]]; then
+            echo "doesn't exist, link $file to $folder/poster-$titlecount.jpg"
+            ln "$file" "$folder/poster-$titlecount.jpg"
+            titlecount=$((titlecount+1))
+            echo "titlecount is now $titlecount"
+        else
+            count3=$((count3+1))
+            :
+        fi
+        titlecount=1
+        echo "titlecount back to 1 - $titlecount"
+    done
 done
 
 finalcount=$((titlecount-1))
