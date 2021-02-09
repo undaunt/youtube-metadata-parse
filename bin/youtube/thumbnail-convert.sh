@@ -53,9 +53,7 @@ do
     cd ..
 done
 
-#finalcount=$((titlecount-1))
-
-#echo "$(format_date) - $finalcount episode posters were hardlinked to series posters. $count3 existing series posters were skipped."
-#echo
+echo "$(format_date) - $finalcount episode posters were hardlinked to series posters. $count3 existing series posters were skipped."
+echo
 
 unset IFS
