@@ -15,12 +15,12 @@ do
     echo "File is $file"
     folder=$(dirname "$file")
     echo "Folder is $folder"
-    noext=${file%.*.*}
+    noext=${file%.*}
     echo "Noext is $noext"
     if [[ -e "$noext.jpg" ]]; then
         :
     else
-        cp "$noext.webp" "$noext.jpg"
+        #cp "$noext.webp" "$noext.jpg"
         count=$((count+1))
     fi
 done
