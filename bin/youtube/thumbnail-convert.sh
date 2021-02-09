@@ -48,6 +48,7 @@ do
 #        titlecount=$((titlecount+1))
 #    done
 #    titlecount=1
+    cd ..
 done
 
 #finalcount=$((titlecount-1))
