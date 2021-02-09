@@ -12,9 +12,9 @@ cd "$MEDIADIR/youtube"
 for i in $(find . -type f -name "*.webp")
 do
     file=$(realpath "$i")
-    echo "File is $file"
+    #echo "File is $file"
     folder=$(dirname "$file")
-    echo "Folder is $folder"
+    #echo "Folder is $folder"
     noext=${file%.*}
     echo "Noext is $noext"
     if [[ -e "$noext.jpg" ]]; then
