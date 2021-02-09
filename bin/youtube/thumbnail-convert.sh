@@ -12,31 +12,32 @@ format_date() {
 
 cd "$MEDIADIR/youtube"
 
-#for i in $(find . -type f -name "*.webp")
-#do
-#    file=$(realpath "$i")
-#    folder=$(dirname "$file")
-#    noext=${file%.*}
-#    if [[ -e "$noext.jpg" ]]; then
-#        count1=$((count1+1))
-#        :
-#    else
-#        ln "$noext.webp" "$noext.jpg"
-#        count2=$((count2+1))
-#    fi
-#done
+for i in $(find . -type f -name "*.webp")
+do
+    file=$(realpath "$i")
+    folder=$(dirname "$file")
+    noext=${file%.*}
+    if [[ -e "$noext.jpg" ]]; then
+        count1=$((count1+1))
+        :
+    else
+        ln "$noext.webp" "$noext.jpg"
+        count2=$((count2+1))
+    fi
+done
 
-#echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
-#echo
+echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
+echo
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
-    folder=$(basename "$d")
+    #folder=$(basename "$d")
     echo "d = $d"
     echo
     echo "folder is $folder"
     echo
-    cd $(folder)
+    cd "$d"
+    #cd "$folder"
 #    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
 #    do
 #        file=$(realpath "$i")
