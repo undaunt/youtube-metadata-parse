@@ -6,13 +6,13 @@ format_date() {
 
 playlist_dl () {
   rm -f "$MEDIADIR/youtube/new.downloads"
-  youtube-dlc --config-location "$STORAGEDIR/config/yt-dlc-playlists.conf" --batch-file "$STORAGEDIR/config/youtube_playlist_list.conf" --exec "touch $MEDIADIR/youtube/new.downloads"
+  youtube-dlc --config-location "$STORAGEDIR/config/youtube/playlists.conf" --batch-file "$STORAGEDIR/config/youtube/playlist_list.txt" --exec "touch $MEDIADIR/youtube/new.downloads"
   playlist_check
 }
 
 channel_dl () {
   rm -f "$MEDIADIR/youtube/new.downloads"
-  youtube-dlc --config-location "$STORAGEDIR/config/yt-dlc-channels.conf" --batch-file "$STORAGEDIR/config/youtube_channel_list.conf" --exec "touch $MEDIADIR/youtube/new.downloads"
+  youtube-dlc --config-location "$STORAGEDIR/config/youtube/channels.conf" --batch-file "$STORAGEDIR/config/youtube/channel_list.txt" --exec "touch $MEDIADIR/youtube/new.downloads"
   channel_check
 }
 
@@ -49,16 +49,16 @@ sleep 2
 
 playlist_dl
 
-"$STORAGEDIR/bin/youtube-episode-metadata.sh"
+"$STORAGEDIR/bin/youtube/episode-metadata.sh"
 
 echo "$(format_date) - Executing the show metadata job."
 sleep 2
 
-"$STORAGEDIR/bin/youtube-show-metadata.sh"
+"$STORAGEDIR/bin/youtube/series-metadata.sh"
 
 echo "$(format_date) - Executing the playlist thumbnail job."
 sleep 2
 
-"$STORAGEDIR/bin/youtube-playlist-thumbnail.sh"
+"$STORAGEDIR/bin/youtube/playlist-thumbnails.sh"
 
 echo "$(format_date) - All youtube-dlc jobs are now complete."
