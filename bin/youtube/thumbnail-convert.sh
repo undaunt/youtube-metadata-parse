@@ -30,10 +30,9 @@ echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $cou
 echo
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
-folder=$(realpath "$d")
 do
     echo "d is $d"
-    #folder=$(realpath "$d")
+    folder=$(realpath "$d")
     echo "folder is $folder"
     cd "$folder"
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
