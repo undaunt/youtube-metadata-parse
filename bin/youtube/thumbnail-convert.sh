@@ -38,14 +38,16 @@ do
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
     do
         file=$(realpath "$i")
+        echo "file is $file"
+        echo "tc is $titlecount"
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
-            #echo "link $file to $folder/poster-$titlecount.jpg"
-            ln "$file" "$poster-$titlecount.jpg"
+            ln "$file" "poster-$titlecount.jpg"
         else
             count3=$((count3+1))
             :
         fi
         titlecount=$((titlecount+1))
+        echo "postloop tc is $titlecount"
     done
     titlecount=1
     cd ..
