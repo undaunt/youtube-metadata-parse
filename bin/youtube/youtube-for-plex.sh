@@ -41,6 +41,7 @@ channel_check () {
   else
     echo
     echo "$(format_date) - All playlist and channel videos have been downloaded and are up to date."
+    echo
     echo "$(format_date) - Executing the episode metadata job. This may take a few moments if a large number of videos have just been downloaded."
     sleep 2
   fi
@@ -63,6 +64,7 @@ sleep 2
 "$STORAGEDIR/bin/youtube/series-metadata.sh"
 
 echo "$(format_date) - Executing the playlist thumbnail job."
+echo
 sleep 2
 
 "$STORAGEDIR/bin/youtube/playlist-thumbnails.sh"
