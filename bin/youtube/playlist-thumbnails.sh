@@ -32,6 +32,7 @@ done
 
 echo "$(format_date) - $count4 playlist poster thumbnails were downloaded and $count3 pre-existing posters were skipped."
 echo "$(format_date) - Executing the channel thumbnail job."
+echo
 sleep 2
 
 for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -path "*[UC*")
