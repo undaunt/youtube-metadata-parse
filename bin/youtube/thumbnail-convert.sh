@@ -29,7 +29,7 @@ cd "$MEDIADIR/youtube"
 #echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
 #echo
 
-for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*" -execdir {} \;)
+for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
     folder=$(basename "$d")
     echo "d = $d"
