@@ -44,7 +44,7 @@ do
         echo "noext is $noext"
         echo "poster-count is poster-$titlecount.jpg"
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
-            echo "doesn't exist, link $file to $folder/poster-$titlecount.jpg"
+            echo "link $file to $folder/poster-$titlecount.jpg"
             ln "$file" "$folder/poster-$titlecount.jpg"
             titlecount=$((titlecount+1))
             echo "titlecount is now $titlecount"
