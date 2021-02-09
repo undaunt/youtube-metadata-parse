@@ -62,7 +62,7 @@ echo "$(format_date) - Executing the playlist thumbnail job."
 
 "$STORAGEDIR/bin/youtube/playlist-thumbnails.sh"
 
-echo "$(format_date) - Executing the thumbnail conversion job."
+echo "$(format_date) - Executing the thumbnail hardlink job."
 
 "$STORAGEDIR/bin/youtube/thumbnail-convert.sh"
 

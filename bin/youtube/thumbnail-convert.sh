@@ -29,6 +29,7 @@ done
 
 echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
 echo
+echo "$(format_date) - Executing the series poster hardlink job."
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
