@@ -24,6 +24,6 @@ done
 
 echo "$(format_date) - $count episode jpg posters were copied and renamed from webp."
 echo
-sleep 1
+#sleep 1
 
 unset IFS

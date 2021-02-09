@@ -33,7 +33,7 @@ done
 echo "$(format_date) - $count4 playlist poster thumbnails were downloaded and $count3 pre-existing posters were skipped."
 echo
 echo "$(format_date) - Executing the channel thumbnail job."
-sleep 1
+#sleep 1
 
 for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -path "*[UC*")
 do
@@ -54,6 +54,6 @@ do
 done
 echo "$(format_date) - $count4 channel poster thumbnails were downloaded and $count3 pre-existing posters were skipped."
 echo
-sleep 1
+#sleep 1
 
 unset IFS
