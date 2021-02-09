@@ -31,13 +31,13 @@ echo
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
-    #folder=$(basename "$d")
+    folder2=$(basename "$d")
     echo "d = $d"
     echo
-    echo "folder is $folder"
+    echo "folder is $folder2"
     echo
-    (cd "$d")
-    #cd "$folder"
+    #(cd "$d")
+    cd "$folder2"
 #    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
 #    do
 #        file=$(realpath "$i")
