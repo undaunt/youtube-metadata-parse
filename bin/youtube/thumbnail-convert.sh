@@ -52,7 +52,7 @@ do
             :
         fi
         titlecount=$((titlecount+1))
-        echo "titlecount is now $titlecount"
+        #echo "titlecount is now $titlecount"
     done
     titlecount=1
     echo "titlecount back $titlecount"
