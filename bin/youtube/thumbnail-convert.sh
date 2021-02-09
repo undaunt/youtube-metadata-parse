@@ -29,7 +29,7 @@ done
 echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
 echo
 
-for i in $(find . -type f -name "*.jpg" -not -name "poster.jpg")
+for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
