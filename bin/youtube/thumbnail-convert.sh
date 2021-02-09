@@ -52,9 +52,9 @@ do
             count3=$((count3+1))
             :
         fi
-        titlecount=1
-        echo "titlecount back to 1 - $titlecount"
     done
+    titlecount=1
+    echo "titlecount back to 1 - $titlecount"
 done
 
 finalcount=$((titlecount-1))
