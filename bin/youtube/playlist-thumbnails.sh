@@ -52,6 +52,7 @@ do
     fi
 done
 echo "$(format_date) - $count4 channel poster thumbnails were downloaded and $count3 pre-existing posters were skipped."
+echo
 sleep 2
 
 unset IFS
