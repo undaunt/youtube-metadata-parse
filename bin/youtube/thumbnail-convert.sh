@@ -1,6 +1,5 @@
 #!/bin/bash
 
-IFS=$'\n'
 count1=0
 count2=0
 count3=0
@@ -31,7 +30,7 @@ echo
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
-    folder2=$(realpath $d)
+    folder2=$(realpath "$d")
     echo "folder is $folder2"
     echo
     cd "$folder2"
