@@ -10,6 +10,12 @@ playlist_dl () {
   playlist_check
 }
 
+playlist_reverse_dl () {
+  rm -f "$MEDIADIR/youtube/new.downloads"
+  youtube-dlc --config-location "$STORAGEDIR/config/youtube/playlists.conf" --batch-file "$STORAGEDIR/config/youtube/list_reversed_playlists.txt" --exec "touch $MEDIADIR/youtube/new.downloads" --playlist-reverse
+  playlist_reverse_check
+}
+
 channel_dl () {
   rm -f "$MEDIADIR/youtube/new.downloads"
   youtube-dlc --config-location "$STORAGEDIR/config/youtube/channels.conf" --batch-file "$STORAGEDIR/config/youtube/list_channels.txt" --exec "touch $MEDIADIR/youtube/new.downloads"
@@ -25,7 +31,22 @@ playlist_check () {
     playlist_dl
   else
     echo
-    echo "$(format_date) - All playlist videos were already downloaded. Executing the youtube-dlc channels job."
+    echo "$(format_date) - All playlist videos were already downloaded. Executing the youtube-dlc reverse-playlists job."
+    echo
+    playlist_reverse_dl
+  fi
+}
+
+playlist_reverse_check () {
+  if [[ -e "$MEDIADIR/youtube/new.downloads" ]]; then
+    echo
+    echo "$(format_date) - Some new reverse-playlist videos were downloaded."
+    echo "$(format_date) - Looping through and executing the reverse-playlist job again to ensure there is no new content."
+    echo
+    playlist_reverse_dl
+  else
+    echo
+    echo "$(format_date) - All reverse-playlist videos were already downloaded. Executing the youtube-dlc channels job."
     echo
     channel_dl
   fi
