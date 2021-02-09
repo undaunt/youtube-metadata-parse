@@ -46,13 +46,13 @@ do
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
             echo "link $file to $folder/poster-$titlecount.jpg"
             ln "$file" "$folder/poster-$titlecount.jpg"
-            titlecount=$((titlecount+1))
-            echo "titlecount is now $titlecount"
         else
             count3=$((count3+1))
             echo "poster already exists - $folder/poster-$titlecount.jpg"
             :
         fi
+        titlecount=$((titlecount+1))
+        echo "titlecount is now $titlecount"
     done
     titlecount=1
     echo "titlecount back to 1 - $titlecount"
