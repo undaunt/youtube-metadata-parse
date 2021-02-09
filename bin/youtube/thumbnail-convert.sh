@@ -36,8 +36,8 @@ do
     echo "folder is $folder"
     cd "$folder"
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
-    echo "i is $i"
     do
+        echo "i is $i"
         file=$(realpath "$i")
         echo "file is $file"
         noext=${file%.*}
