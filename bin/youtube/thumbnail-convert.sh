@@ -3,6 +3,7 @@
 IFS=$'\n'
 count1=0
 count2=0
+count3=0
 titlecount=1
 
 format_date() {
@@ -20,7 +21,7 @@ do
         count1=$((count1+1))
         :
     else
-        cp "$noext.webp" "$noext.jpg"
+        ln "$noext.webp" "$noext.jpg"
         count2=$((count2+1))
     fi
 done
@@ -33,9 +34,9 @@ do
     file=$(realpath "$i")
     folder=$(dirname "$file")
     noext=${file%.*}
-    if [[ ! -e "poster-$titlecount.jpg" ]]; then # if poster-1 doesn't exist
-        ln "$noext.jpg" "$folder/poster-$titlecount.jpg" # hardlink EP1.poster to poster-1.jpg
-        titlecount=$((titlecount+1)) # bump title to 2
+    if [[ ! -e "poster-$titlecount.jpg" ]]; then
+        ln "$noext.jpg" "$folder/poster-$titlecount.jpg"
+        titlecount=$((titlecount+1))
     else
         count3=$((count3+1))
         :
