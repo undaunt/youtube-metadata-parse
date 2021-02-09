@@ -32,7 +32,6 @@ echo
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
     echo "d is $d"
-    folder=
     folder=$(realpath "$d")
     echo "folder is $folder"
     cd "$folder"
