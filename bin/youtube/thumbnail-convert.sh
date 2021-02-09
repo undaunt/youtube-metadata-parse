@@ -27,9 +27,7 @@ do
     fi
 done
 
-echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
-echo
-echo "$(format_date) - Executing the series poster hardlink job."
+echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 pre-existing episode posters were skipped."
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
@@ -50,7 +48,7 @@ do
     cd ..
 done
 
-echo "$(format_date) - $newcount episode posters were hardlinked to series posters. $count3 existing series posters were skipped."
+echo "$(format_date) - $newcount episode posters were hardlinked to series posters. $count3 pre-existing series posters were skipped."
 echo
 
 unset IFS
