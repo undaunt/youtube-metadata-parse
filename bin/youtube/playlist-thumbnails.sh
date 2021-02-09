@@ -30,7 +30,7 @@ do
     fi
 done
 
-echo "$(format_date) - $count4 playlist poster thumbnails were downloaded and $count3 pre-existing posters were skipped."
+echo "$(format_date) - $count2 playlist poster thumbnails were downloaded and $count1 pre-existing posters were skipped."
 echo
 echo "$(format_date) - Executing the channel thumbnail job."
 #sleep 1
