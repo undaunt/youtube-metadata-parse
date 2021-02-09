@@ -34,6 +34,7 @@ do
     echo "d is $d"
     cd "$d"
     echo "newdir is `pwd`"
+    echo
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
     do
         file=$(realpath "$i")
