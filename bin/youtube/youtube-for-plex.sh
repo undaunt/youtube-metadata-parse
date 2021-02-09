@@ -70,4 +70,9 @@ echo "$(format_date) - Executing the playlist thumbnail job."
 
 "$STORAGEDIR/bin/youtube/playlist-thumbnails.sh"
 
+echo "$(format_date) - Executing the thumbnail conversion job."
+#sleep 1
+
+"$STORAGEDIR/bin/youtube/thumbnail-convert.sh"
+
 echo "$(format_date) - All youtube-dlc jobs are now complete."
