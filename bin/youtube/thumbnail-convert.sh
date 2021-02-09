@@ -12,22 +12,22 @@ format_date() {
 
 cd "$MEDIADIR/youtube"
 
-for i in $(find . -type f -name "*.webp")
-do
-    file=$(realpath "$i")
-    folder=$(dirname "$file")
-    noext=${file%.*}
-    if [[ -e "$noext.jpg" ]]; then
-        count1=$((count1+1))
-        :
-    else
-        ln "$noext.webp" "$noext.jpg"
-        count2=$((count2+1))
-    fi
-done
+#for i in $(find . -type f -name "*.webp")
+#do
+#    file=$(realpath "$i")
+#    folder=$(dirname "$file")
+#    noext=${file%.*}
+#    if [[ -e "$noext.jpg" ]]; then
+#        count1=$((count1+1))
+#        :
+#    else
+#        ln "$noext.webp" "$noext.jpg"
+#        count2=$((count2+1))
+#    fi
+#done
 
-echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
-echo
+#echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
+#echo
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
@@ -52,9 +52,9 @@ do
 #    titlecount=1
 done
 
-finalcount=$((titlecount-1))
+#finalcount=$((titlecount-1))
 
-echo "$(format_date) - $finalcount episode posters were hardlinked to series posters. $count3 existing series posters were skipped."
-echo
+#echo "$(format_date) - $finalcount episode posters were hardlinked to series posters. $count3 existing series posters were skipped."
+#echo
 
 unset IFS
