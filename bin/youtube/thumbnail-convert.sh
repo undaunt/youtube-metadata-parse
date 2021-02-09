@@ -34,7 +34,7 @@ do
     folder=$(dirname "$file")
     noext=${file%.*}
     if [[ ! -e "poster-$titlecount.jpg" ]]; then # if poster-1 doesn't exist
-        ln "$noext.jpg" "poster-$titlecount.jpg" # hardlink EP1.poster to poster-1.jpg
+        ln "$noext.jpg" "$folder/poster-$titlecount.jpg" # hardlink EP1.poster to poster-1.jpg
         titlecount=$((titlecount+1)) # bump title to 2
     else
         count3=$((count3+1))
