@@ -48,7 +48,6 @@ do
         titlecount=$((titlecount+1))
     done
     titlecount=1
-    echo "titlecount back $titlecount"
 done
 
 finalcount=$((titlecount-1))
