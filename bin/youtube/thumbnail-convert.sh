@@ -26,7 +26,7 @@ do
     fi
 done
 
-echo "$(format_date) - $count2 episode jpg posters were copied & renamed from webp. $count1 existing episode posters were skipped."
+echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
 echo
 
 for i in $(find . -type f -name "*.jpg" -not -name "poster.jpg")
