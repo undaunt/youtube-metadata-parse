@@ -32,27 +32,22 @@ echo
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
     echo "d is $d"
+    echo
     folder=$(realpath "$d")
     echo "folder is $folder"
     cd "$folder"
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
     do
-        #echo "i is $i"
         file=$(realpath "$i")
         echo "file is $file"
-        #noext=${file%.*}
-        #echo "noext is $noext"
-        #echo "poster-count is poster-$titlecount.jpg"
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
             echo "link $file to $folder/poster-$titlecount.jpg"
             ln "$file" "$folder/poster-$titlecount.jpg"
         else
             count3=$((count3+1))
-            echo "poster already exists - $folder/poster-$titlecount.jpg"
             :
         fi
         titlecount=$((titlecount+1))
-        #echo "titlecount is now $titlecount"
     done
     titlecount=1
     echo "titlecount back $titlecount"
