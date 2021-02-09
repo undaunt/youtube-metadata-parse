@@ -16,10 +16,9 @@ for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlis
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
-    noext=${i%.*.*}
     playlist=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-39 ) }')
 
-    if [[ -e "$noext/poster.jpg" ]]; then
+    if [[ -e "$folder/poster.jpg" ]]; then
         count1=$((count1+1))
         :
     else
@@ -40,10 +39,9 @@ for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlis
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
-    noext=${i%.*.*}
     channel=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-29 ) }')
 
-    if [[ -e "$noext/poster.jpg" ]]; then
+    if [[ -e "$folder/poster.jpg" ]]; then
         count3=$((count3+1))
         :
     else
