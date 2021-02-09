@@ -18,7 +18,7 @@ do
         count1=$((count1+1))
         :
     else
-        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary="+.description,"release=","actors="+.uploader,"studio=YouTube","genres="+(.tags|join(",")),"collections="+.channel' > "$folder/show.metadata"
+        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary="+.description,"actors="+.uploader,"studio=YouTube","genres="+(.tags|join(",")),"collections="+.channel' > "$folder/show.metadata"
         count2=$((count2+1))
     fi
 done
