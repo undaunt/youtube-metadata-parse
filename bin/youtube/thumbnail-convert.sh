@@ -36,7 +36,7 @@ do
     echo
     echo "folder is $folder"
     echo
-    cd "$folder"
+    cd $(folder)
 #    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
 #    do
 #        file=$(realpath "$i")
