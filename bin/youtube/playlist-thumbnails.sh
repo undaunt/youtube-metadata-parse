@@ -39,7 +39,7 @@ for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlis
 do
     file=$(realpath "$i")
     folder=$(dirname "$file")
-    channel=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-39 ) }')
+    channel=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-29 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
         count3=$((count3+1))
@@ -57,3 +57,6 @@ echo
 sleep 2
 
 unset IFS
+
+UC83CJFLyDe72XgkKBd5a9IA
+PLz3Be--ot61Mvmms68yBEhX6KrzPrqxsW
