@@ -39,7 +39,6 @@ do
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
     do
         file=$(realpath "$i")
-        echo "file is $file"
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
             echo "link $file to $folder/poster-$titlecount.jpg"
             ln "$file" "$folder/poster-$titlecount.jpg"
