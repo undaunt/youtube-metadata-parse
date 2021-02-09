@@ -42,7 +42,7 @@ do
         echo "file is $file"
         #noext=${file%.*}
         #echo "noext is $noext"
-        echo "poster-count is poster-$titlecount.jpg"
+        #echo "poster-count is poster-$titlecount.jpg"
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
             echo "link $file to $folder/poster-$titlecount.jpg"
             ln "$file" "$folder/poster-$titlecount.jpg"
