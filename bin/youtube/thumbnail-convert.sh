@@ -34,7 +34,7 @@ do
     file=$(realpath "$i")
     folder=$(dirname "$file")
     noext=${file%.*}
-    if [[ ! -e "poster-$titlecount.jpg" ]]; then
+    if [[ ! -e "$folder/poster-$titlecount.jpg" ]]; then
         ln "$noext.jpg" "$folder/poster-$titlecount.jpg"
         titlecount=$((titlecount+1))
     else
