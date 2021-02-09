@@ -31,9 +31,9 @@ echo
 
 for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
-    #folder2=$(realpath "$d")
-    #cd "$folder2"
-    cd "$d"
+    folder2=$(realpath "$d")
+    cd "$folder2"
+    #cd "$d"
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
     do
         file=$(realpath "$i")
