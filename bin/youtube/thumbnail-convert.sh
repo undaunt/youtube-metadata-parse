@@ -29,18 +29,25 @@ done
 echo "$(format_date) - $count2 webp episode posters were hardlinked to jpg. $count1 existing episode posters were skipped."
 echo
 
-for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
+for d in $(find . -type d -name "* - [PL*" -o -name "* - Videos - [UC*")
 do
-    file=$(realpath "$i")
-    folder=$(dirname "$file")
-    noext=${file%.*}
-    if [[ ! -e "$folder/poster-$titlecount.jpg" ]]; then
-        ln "$noext.jpg" "$folder/poster-$titlecount.jpg"
-        titlecount=$((titlecount+1))
-    else
-        count3=$((count3+1))
-        :
-    fi
+    cd "$d"
+    echo "Dir is $d"
+#    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
+#    do
+#        file=$(realpath "$i")
+#        folder=$(dirname "$file")
+#        noext=${file%.*}
+
+#        cd "$folder"
+#        if [[ ! -e "poster-$titlecount.jpg" ]]; then
+#            ln "$noext.jpg" "$folder/poster-$titlecount.jpg"
+#            titlecount=$((titlecount+1))
+#        else
+#            count3=$((count3+1))
+#            :
+#        fi
+#    done
 done
 
 finalcount=$((titlecount-1))
