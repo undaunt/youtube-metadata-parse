@@ -20,7 +20,7 @@ do
     if [[ -e "$noext.jpg" ]]; then
         :
     else
-        #cp "$noext.webp" "$noext.jpg"
+        cp "$noext.webp" "$noext.jpg"
         count=$((count+1))
     fi
 done
