@@ -64,7 +64,6 @@ sleep 2
 "$STORAGEDIR/bin/youtube/series-metadata.sh"
 
 echo "$(format_date) - Executing the playlist thumbnail job."
-echo
 sleep 2
 
 "$STORAGEDIR/bin/youtube/playlist-thumbnails.sh"
