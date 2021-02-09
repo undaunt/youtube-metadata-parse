@@ -37,19 +37,19 @@ do
     echo "folder is $folder"
     echo
     cd "$folder"
-    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
-    do
-        file=$(realpath "$i")
-        if [[ ! -e "poster-$titlecount.jpg" ]]; then
-            echo "link $file to $folder/poster-$titlecount.jpg"
-            ln "$file" "$folder/poster-$titlecount.jpg"
-        else
-            count3=$((count3+1))
-            :
-        fi
-        titlecount=$((titlecount+1))
-    done
-    titlecount=1
+#    for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg" -exec ls {} +)
+#    do
+#        file=$(realpath "$i")
+#        if [[ ! -e "poster-$titlecount.jpg" ]]; then
+#            echo "link $file to $folder/poster-$titlecount.jpg"
+#            ln "$file" "$folder/poster-$titlecount.jpg"
+#        else
+#            count3=$((count3+1))
+#            :
+#        fi
+#        titlecount=$((titlecount+1))
+#    done
+#    titlecount=1
 done
 
 finalcount=$((titlecount-1))
