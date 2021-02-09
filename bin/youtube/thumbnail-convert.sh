@@ -37,11 +37,11 @@ do
     cd "$folder"
     for i in $(find . -type f -name "*.jpg" -not -name "poster*.jpg")
     do
-        echo "i is $i"
+        #echo "i is $i"
         file=$(realpath "$i")
         echo "file is $file"
         noext=${file%.*}
-        echo "noext is $noext"
+        #echo "noext is $noext"
         echo "poster-count is poster-$titlecount.jpg"
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
             echo "link $file to $folder/poster-$titlecount.jpg"
