@@ -39,8 +39,8 @@ do
     do
         file=$(realpath "$i")
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
-            echo "link $file to $folder/poster-$titlecount.jpg"
-            ln "$file" "$folder/poster-$titlecount.jpg"
+            #echo "link $file to $folder/poster-$titlecount.jpg"
+            ln "$file" "$poster-$titlecount.jpg"
         else
             count3=$((count3+1))
             :
