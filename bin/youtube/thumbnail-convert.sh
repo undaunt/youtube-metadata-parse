@@ -40,7 +40,7 @@ do
         #echo "i is $i"
         file=$(realpath "$i")
         echo "file is $file"
-        noext=${file%.*}
+        #noext=${file%.*}
         #echo "noext is $noext"
         echo "poster-count is poster-$titlecount.jpg"
         if [[ ! -e "poster-$titlecount.jpg" ]]; then
