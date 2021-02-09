@@ -57,6 +57,3 @@ echo
 sleep 2
 
 unset IFS
-
-UC83CJFLyDe72XgkKBd5a9IA
-PLz3Be--ot61Mvmms68yBEhX6KrzPrqxsW
