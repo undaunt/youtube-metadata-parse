@@ -67,7 +67,7 @@ channel_check () {
 
 echo
 echo "$(format_date) - Beginning the youtube-dlc download and metadata parse jobs."
-echo "$(format_date) - Executing the youtube-dlc playlist job."
+echo "$(format_date) - Executing the youtube-dlc reverse-playlist job."
 echo
 
 playlist_reverse_dl
