@@ -12,9 +12,8 @@ Currently, it creates a metadata file per episode with the same name as the JSON
 
 # To do
 
-* Pull the date of the first episode in a playlist to populate release date on show metadata
-* Same as above, but with a check on the channel (date based) seasons for the first season release date
-* append with sed (or similar) the categories and tags data from a show's episode files into the show.metadata
-* Add episode based full size thumbnails as alternate series/playlist thumbnails
+* Pull the date of the first episode in a channel season folder (date based) for the first season release date and populate show.metadata.
+* append with sed (or similar) the categories and tags data from a show's episode files into the show.metadata (currently pulling only first episode)
+* Add episode based full size thumbnails as alternate series thumbnails (Playlists done)
 
 If anyone can assist with the to-do list, please feel free to open an issue or a pull request.

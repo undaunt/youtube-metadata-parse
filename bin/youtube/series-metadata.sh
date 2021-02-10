@@ -5,6 +5,8 @@ count1=0
 count2=0
 count3=0
 count4=0
+count5=0
+count6=0
 
 format_date() {
   date "+%m/%d/%Y %H:%M:%S"
@@ -20,7 +22,7 @@ do
         count1=$((count1+1))
         :
     else
-        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary="+.description,"actors="+.uploader,"studio=YouTube","genres="+(.tags|join(",")),"collections="+.channel' > "$folder/show.metadata"
+        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary="+.description,"actors="+.uploader,"studio=YouTube","collections="+.channel' > "$folder/show.metadata"
         count2=$((count2+1))
     fi
 done
@@ -41,14 +43,16 @@ do
             cat "$j"  | jq -r '"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8]' >> show.metadata
             count4=$((count4+1))
         fi
+        if grep -q "genres=" show.metadata; then
+            :
+        else
+            cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> show.metadata
+        fi
         cd ..
     done
 done
 
-echo "$(format_date) - $count4 series metadata files were appended with release dates while $count3 files were already up to date."
+echo "$(format_date) - $count4 series metadata files were appended with release dates and genres while $count3 files were already up to date."
 echo
-
-
-
 
 unset IFS
