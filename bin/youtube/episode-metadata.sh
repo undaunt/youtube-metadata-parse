@@ -19,7 +19,7 @@ do
         count1=$((count1+1))
         :
     else
-        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary="+.description,"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8],"writers=","directors="+.uploader' > "$noext.metadata"
+        cat "$i"  | jq -r '"[metadata]","title="+.title,"summary="+.description,"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8],"directors="+.uploader' > "$noext.metadata"
         count2=$((count2+1))
     fi
 done
