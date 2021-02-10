@@ -31,9 +31,9 @@ playlist_check () {
     playlist_dl
   else
     echo
-    echo "$(format_date) - All playlist videos were already downloaded. Executing the youtube-dlc reverse-playlists job."
+    echo "$(format_date) - All playlist videos were already downloaded. Executing the youtube-dlc channels job."
     echo
-    playlist_reverse_dl
+    channel_dl
   fi
 }
 
@@ -46,9 +46,9 @@ playlist_reverse_check () {
     playlist_reverse_dl
   else
     echo
-    echo "$(format_date) - All reverse-playlist videos were already downloaded. Executing the youtube-dlc channels job."
+    echo "$(format_date) - All reverse-playlist videos were already downloaded. Executing the youtube-dlc playlists job."
     echo
-    channel_dl
+    playlist_dl
   fi
 }
 
@@ -62,7 +62,6 @@ channel_check () {
     echo
     echo "$(format_date) - All playlist and channel videos have been downloaded and are up to date."
     echo
-    echo "$(format_date) - Executing the episode metadata job. This may take a few moments if a large number of videos have just been downloaded."
   fi
 }
 
@@ -71,7 +70,7 @@ echo "$(format_date) - Beginning the youtube-dlc download and metadata parse job
 echo "$(format_date) - Executing the youtube-dlc playlist job."
 echo
 
-playlist_dl
+playlist_reverse_dl
 
 "$STORAGEDIR/bin/youtube/episode-metadata.sh"
 

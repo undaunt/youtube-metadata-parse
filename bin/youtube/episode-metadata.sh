@@ -8,6 +8,8 @@ format_date() {
   date "+%m/%d/%Y %H:%M:%S"
 }
 
+echo "$(format_date) - Executing the episode metadata job. This may take a few moments if a large number of videos have just been downloaded."
+
 cd "$MEDIADIR/youtube"
 
 for i in $(find . -type f -name "*.info.json" -not -name "*Channel Info*" -not -name "*Playlist Info*")
