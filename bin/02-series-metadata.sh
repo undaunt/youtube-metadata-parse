@@ -48,8 +48,8 @@ do
         else
             cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> show.metadata
         fi
-        cd ..
     done
+    cd ..
 done
 
 echo "$(format_date) - $count4 series metadata files were appended with release dates and genres while $count3 files were already up to date."
