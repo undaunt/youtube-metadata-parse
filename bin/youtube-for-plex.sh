@@ -72,18 +72,18 @@ echo
 
 playlist_reverse_dl
 
-"$STORAGEDIR/bin/youtube/episode-metadata.sh"
+"$STORAGEDIR/bin/youtube/01-episode-metadata.sh"
 
 echo "$(format_date) - Executing the show metadata job."
 
-"$STORAGEDIR/bin/youtube/series-metadata.sh"
+"$STORAGEDIR/bin/youtube/02-series-metadata.sh"
 
 echo "$(format_date) - Executing the playlist thumbnail job."
 
-"$STORAGEDIR/bin/youtube/playlist-thumbnails.sh"
+"$STORAGEDIR/bin/youtube/03-playlist-thumbnails.sh"
 
 echo "$(format_date) - Executing the thumbnail hardlink jobs."
 
-"$STORAGEDIR/bin/youtube/thumbnail-convert.sh"
+"$STORAGEDIR/bin/youtube/04-thumbnail-link.sh"
 
 echo "$(format_date) - All youtube-dlc jobs are now complete."
