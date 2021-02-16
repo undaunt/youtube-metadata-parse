@@ -79,7 +79,7 @@ do
     cd ..
 done
 
-echo "$(format_date) - $count6 series metadata files were appended with release dates and genres while $count5 files were already up to date."
+echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
 echo
 
 unset IFS
