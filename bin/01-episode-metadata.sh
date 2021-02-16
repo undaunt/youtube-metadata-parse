@@ -39,7 +39,7 @@ do
       status=$(awk '/^[[:blank:]]/' "$i")
       if [[ -z "$status" ]]; then
         for (( j=$startline; j<=$endline; j++ )); do
-          sed -i '"$j"s/^/\ /' "$i"
+          sed -i "${j}s/^/\ /" "$i"
         done
         count3=$((count3+1))
       else
