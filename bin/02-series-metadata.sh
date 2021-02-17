@@ -86,10 +86,10 @@ echo "$(format_date) - $count6 channel metadata files were appended with release
 
 for i in $(find . -type f -name "show.metadata")
 do
-    releaseline=$(awk '/release=/{ print NR; exit }' "$i")
-    if [[ releaseline -gt 4 ]]; then
+    actorsline=$(awk '/actors=/{ print NR; exit }' "$i")
+    if [[ actorsline -gt 4 ]]; then
       startline=4
-      endline=$((releaseline-1))
+      endline=$((actorsline-1))
       status=$(awk '/^[[:blank:]]/' "$i")
       if [[ -z "$status" ]]; then
         for (( j=$startline; j<=$endline; j++ )); do
@@ -106,7 +106,7 @@ do
     fi
 done
 
-echo "$(format_date) - $count7 playlist and channel descriptions were indented, $count8 descriptions were previously indented, and $count9 episodes have single line descriptions."
+echo "$(format_date) - $count7 playlist and channel descriptions were indented, $count8 descriptions were previously indented, and $count9 have single line descriptions."
 echo
 
 unset IFS
