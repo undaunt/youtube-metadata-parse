@@ -100,12 +100,12 @@ do
         :
       fi
     else
-      count7=$((count7+1))
+      count9=$((count9+1))
       :
     fi
 done
 
-echo "$(format_date) - $count7 episode descriptions were indented, $count4 episodes' descriptions were previously indented, and $count8 episodes have single line descriptions."
+echo "$(format_date) - $count7 playlist and channel descriptions were indented, $count8 descriptions were previously indented, and $count9 episodes have single line descriptions."
 echo
 
 unset IFS
