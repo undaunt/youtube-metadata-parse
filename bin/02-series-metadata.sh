@@ -66,7 +66,7 @@ do
         if grep -q "release=" "../show.metadata"; then
             count5=$((count5+1))
             :
-        else if ! grep -q "release=" "../show.metadata" && grep -q "release=" "$j"
+        elif ! grep -q "release=" "../show.metadata" && grep -q "release=" "$j"
             count7=$((count7+1))
         else
             cat "$j"  | jq -r '"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8]' >> "../show.metadata"
