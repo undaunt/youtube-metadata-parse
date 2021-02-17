@@ -7,6 +7,8 @@ count3=0
 count4=0
 count5=0
 count6=0
+count7=0
+count8=0
 
 format_date() {
   date "+%m/%d/%Y %H:%M:%S"
@@ -80,6 +82,30 @@ do
 done
 
 echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
+
+for i in $(find . -type f -name "show.metadata")
+do
+    releaseline=$(awk '/release=/{ print NR; exit }' "$i")
+    if [[ releaseline -gt 4 ]]; then
+      startline=4
+      endline=$((releaseline-1))
+      status=$(awk '/^[[:blank:]]/' "$i")
+      if [[ -z "$status" ]]; then
+        for (( j=$startline; j<=$endline; j++ )); do
+          sed -i "${j}s/^/\ /" "$i"
+        done
+        count7=$((count7+1))
+      else
+        count8=$((count8+1))
+        :
+      fi
+    else
+      count7=$((count7+1))
+      :
+    fi
+done
+
+echo "$(format_date) - $count7 episode descriptions were indented, $count4 episodes' descriptions were previously indented, and $count8 episodes have single line descriptions."
 echo
 
 unset IFS
