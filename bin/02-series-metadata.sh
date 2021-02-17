@@ -66,9 +66,6 @@ do
         if grep -q "release=" "../show.metadata"; then
             count5=$((count5+1))
             :
-        elif ! grep -q "release=" "../show.metadata" && grep -q "release=" "$j"; then
-            count7=$((count7+1))
-            :
         else
             cat "$j"  | jq -r '"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8]' >> "../show.metadata"
             count6=$((count6+1))
@@ -82,7 +79,7 @@ do
     cd ../..
 done
 
-echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres, while $count5 files were already up to date and $count7 channels have no release data."
+echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
 echo
 
 unset IFS
