@@ -66,7 +66,7 @@ do
         if grep -q "release=" "../show.metadata"; then
             count5=$((count5+1))
             :
-        elif ! grep -q "release=" "../show.metadata" && grep -q "release=" "$j"
+        elif ! grep -q "release=" "../show.metadata" && grep -q "release=" "$j"; then
             count7=$((count7+1))
             :
         else
