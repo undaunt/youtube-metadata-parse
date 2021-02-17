@@ -63,7 +63,7 @@ do
     cd "$folder"
     year=$(find "$(pwd)" -type d | sort -n | sed -n '2 p')
     cd "$year"
-    for j in $(find "$(pwd)" -type f -name "*.info.json" | sort -n | sed -n '2 p')
+    for j in $(find "$(pwd)" -type f -name "*.info.json" | sort -n | sed -n '1 p')
     do
         if grep -q "release=" "../show.metadata"; then
             count5=$((count5+1))
