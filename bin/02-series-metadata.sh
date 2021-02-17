@@ -78,7 +78,8 @@ do
             cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> "../show.metadata"
         fi
     done
-    cd ../..
+    cd "$folder"
+    cd ..
 done
 
 echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
