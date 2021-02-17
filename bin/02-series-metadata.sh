@@ -34,7 +34,7 @@ do
     file=$(realpath "$i")
     folder=$(dirname "$file")
     cd "$folder"
-    for j in $(find . -type f -name "*S01E1 *.info.json" -o -name "*S01E01 *.info.json*" -o -name "*S01E001 *.info.json*" -o -name "*S01E0001 *.info.json*")
+    for j in $(find . -type f -name "*.info.json" | sort -n | sed -n '2 p')
     do
         if grep -q "release=" show.metadata; then
             count3=$((count3+1))
@@ -66,6 +66,8 @@ do
         if grep -q "release=" "../show.metadata"; then
             count5=$((count5+1))
             :
+        else if ! grep -q "release=" "../show.metadata" && grep -q "release=" "$j"
+            count7=$((count7+1))
         else
             cat "$j"  | jq -r '"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8]' >> "../show.metadata"
             count6=$((count6+1))
@@ -76,10 +78,10 @@ do
             cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> "../show.metadata"
         fi
     done
-    cd ..
+    cd ../..
 done
 
-echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
+echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres, while $count5 files were already up to date and $count7 channels have no release data."
 echo
 
 unset IFS
