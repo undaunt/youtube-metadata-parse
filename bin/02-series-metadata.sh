@@ -29,7 +29,7 @@ do
     fi
 done
 
-echo "$(format_date) - $count2 playlist metadata files were created and $count1 pre-existing files were skipped."
+echo "$(format_date) - $count2 series metadata files were created and $count1 pre-existing files were skipped."
 
 for i in $(find . -type f -name "show.metadata" -not -path "*[UC*")
 do
@@ -54,7 +54,7 @@ do
     cd ..
 done
 
-echo "$(format_date) - $count4 series metadata files were appended with release dates and genres while $count3 files were already up to date."
+echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres while $count3 files were already up to date."
 
 for i in $(find . -type f -name "show.metadata" -path "*[UC*")
 do
