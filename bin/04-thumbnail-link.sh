@@ -1,4 +1,4 @@
-oi9#!/bin/bash
+#!/bin/bash
 
 IFS=$'\n'
 count1=0
