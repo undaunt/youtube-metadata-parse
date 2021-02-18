@@ -9,6 +9,7 @@ count5=0
 count6=0
 count7=0
 count8=0
+count9=0
 
 format_date() {
   date "+%m/%d/%Y %H:%M:%S"
@@ -46,7 +47,12 @@ do
   cd ..
 done
 
-echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres while $count3 files were already up to date."
+for i in $(find "$(pwd)" -type f -name "show.metadata" -path "*Playlists*[UC*")
+do
+  count9=$((count9+1))
+done
+
+echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres, $count3 files were already up to date, and $count9 channel level playlist files have no data."
 
 for i in $(find "$(pwd)" -type f -name "show.metadata" -path "*Videos*[UC*")
 do
