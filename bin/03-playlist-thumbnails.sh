@@ -12,10 +12,9 @@ format_date() {
 
 cd "$MEDIADIR/youtube"
 
-for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -not -path "*[UC*")
+for i in $(find "$(pwd)" -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -not -path "*[UC*")
 do
-    file=$(realpath "$i")
-    folder=$(dirname "$file")
+    folder=$(dirname "$i")
     playlist=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-39 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
@@ -33,10 +32,9 @@ echo "$(format_date) - $count2 playlist poster thumbnails were downloaded and $c
 echo
 echo "$(format_date) - Executing the channel thumbnail job."
 
-for i in $(find . -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -path "*[UC*")
+for i in $(find "$(pwd)" -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -path "*[UC*")
 do
-    file=$(realpath "$i")
-    folder=$(dirname "$file")
+    folder=$(dirname "$i")
     channel=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-29 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
