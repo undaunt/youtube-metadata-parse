@@ -51,7 +51,7 @@ do
             cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> show.metadata
         fi
     done
-    cd ..
+    cd "$MEDIADIR/youtube"
 done
 
 echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres while $count3 files were already up to date."
@@ -78,8 +78,7 @@ do
             cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> "../show.metadata"
         fi
     done
-    cd "$folder"
-    cd ..
+    cd "$MEDIADIR/youtube"
 done
 
 echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
