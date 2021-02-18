@@ -47,12 +47,7 @@ do
   cd ..
 done
 
-for i in $(find "$(pwd)" -type f -name "show.metadata" -path "*Playlists*[UC*")
-do
-  count9=$((count9+1))
-done
-
-echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres, $count3 files were already up to date, and $count9 channel playlist files have no episodic data."
+echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres while $count3 files were already up to date."
 
 for i in $(find "$(pwd)" -type f -name "show.metadata" -path "*Videos*[UC*")
 do
@@ -73,7 +68,13 @@ do
   cd "$MEDIADIR/youtube"
 done
 
+for i in $(find "$(pwd)" -type f -name "show.metadata" -path "*Playlists*[UC*")
+do
+  count9=$((count9+1))
+done
+
 echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
+echo "$(format_date) - $count9 channel-level playlist files have no episodic data."
 
 for i in $(find . -type f -name "show.metadata")
 do
