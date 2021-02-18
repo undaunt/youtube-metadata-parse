@@ -30,6 +30,7 @@ folder=$(dirname "$i")
 done
 
 echo "$(format_date) - $count2 series metadata files were created and $count1 pre-existing files were skipped."
+echo
 
 for i in $(find "$(pwd)" -type f -name "show.metadata" -not -path "*[UC*")
 do
@@ -76,6 +77,7 @@ done
 
 echo "$(format_date) - $count6 channel metadata files were appended with release dates and genres while $count5 files were already up to date."
 echo "$(format_date) - $count10 channel-level playlist files have no episodic data."
+echo
 
 for i in $(find . -type f -name "show.metadata")
 do
