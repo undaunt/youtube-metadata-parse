@@ -52,7 +52,7 @@ do
   count9=$((count9+1))
 done
 
-echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres, $count3 files were already up to date, and $count9 channel level playlist files have no data."
+echo "$(format_date) - $count4 playlist metadata files were appended with release dates and genres, $count3 files were already up to date, and $count9 channel playlist files have no episodic data."
 
 for i in $(find "$(pwd)" -type f -name "show.metadata" -path "*Videos*[UC*")
 do
