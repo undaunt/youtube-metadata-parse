@@ -48,7 +48,7 @@ do
   fi
 done
 
-echo "$(format_date) - $count3 episode descriptions were indented, $count4 episodes' descriptions were previously indented, and $count5 episodes have single line descriptions."
+echo "$(format_date) - $count3 episode descriptions were indented, $count4 descriptions were previously indented, and $count5 episodes have single line descriptions."
 echo
 
 unset IFS
