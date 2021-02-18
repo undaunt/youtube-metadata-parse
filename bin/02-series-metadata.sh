@@ -36,7 +36,8 @@ for i in $(find "$(pwd)" -type f -name "show.metadata" -not -path "*[UC*")
 do
   folder=$(dirname "$i")
   cd "$folder"
-  for j in $(find . -type f -name "*.info.json" | sort -n | sed -n '2 p')
+  for j in $(find . -type f -name "*.info.json" | sort -n | sed -n '2 p') # For pulling the earliest episode tags only
+  # for j in $(find . -type f -name "*.info.json" | sort -n | sed -n '1!p') # For concatenating all episode tags
   do
     if grep -q "release=" show.metadata; then
       count3=$((count3+1))
