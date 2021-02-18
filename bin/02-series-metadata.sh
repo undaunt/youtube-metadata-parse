@@ -66,12 +66,8 @@ do
       count5=$((count5+1))
     else
       cat "$j"  | jq -r '"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8]' >> "../show.metadata"
-      count6=$((count6+1))
-    fi
-    if grep -q "genres=" "../show.metadata"; then
-      :
-    else
       cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> "../show.metadata"
+      count6=$((count6+1))
     fi
   done
   cd "$MEDIADIR/youtube"
