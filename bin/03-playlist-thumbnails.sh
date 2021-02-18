@@ -19,7 +19,6 @@ do
     playlist=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-39 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
-        echo "$(format_date) - Playlist thumbnail already exists for $playlist."
         count1=$((count1+1))
     else
         url=$( jq -r '[.thumbnails[] | select(.url|test("hqdefault"))][0] | .url' $i )
@@ -41,7 +40,6 @@ do
     channel=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-29 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
-        echo "$(format_date) - Channel thumbnail already exists for $channel."
         count3=$((count3+1))
     else
         url=$( jq -r '[.thumbnails[] | .url][0]' $i )
