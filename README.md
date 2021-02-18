@@ -2,6 +2,8 @@
 
 A simple script to execute [youtube-dlc](https://github.com/pukkandan/yt-dlp) against a user's predefined playlists, reverse chronological playlists, and then channels, ensuring all playlists are populated before non-playlist videos from any channels.
 
+New features of youtube-dlp (pukkandan's fork) specifically are leveraged to create playlist .json files in a separate naming scheme than regular episode files, shorten the configuration required for optimizing formats downloaded, etc.
+
 After all files are downloaded, multiple sub-scripts will run to create metadata files for each episode as compatible with https://bitbucket.org/mjarends/extendedpersonalmedia-agent.bundle. They will:
 
 * Create a .metadata file for each video, based on that video playlist .info.json file
