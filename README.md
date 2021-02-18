@@ -14,7 +14,7 @@ After all files are downloaded, multiple sub-scripts will run to create metadata
 To get these scripts to work, do the following:
 
 * Update both MEDIADIR and STORAGEDIR to required locations for content and bin/config files as required.
-* Populate the channel and playlist list files referenced on lines 7 & 13 of yt-dlc-execute.sh - one channel or playlist per line.
+* Populate the channel, and playlist, and reverse playlist list files referenced in yt-dlc-execute.sh - one channel or playlist per line.
 * Run youtube-for-plex.sh.
 
 # To do
