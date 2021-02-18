@@ -15,7 +15,7 @@ cd "$MEDIADIR/youtube"
 for i in $(find "$(pwd)" -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -not -path "*[UC*")
 do
     folder=$(dirname "$i")
-    playlist=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-39 ) }')
+    playlist=$(basename "$folder" | awk '{print substr( $0, 1, length($0)-39 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
         count1=$((count1+1))
@@ -35,7 +35,7 @@ echo "$(format_date) - Executing the channel thumbnail job."
 for i in $(find "$(pwd)" -type f \( -name "*Channel Info*.info.json" -o -name "*Playlist Info*.info.json*" \) -path "*[UC*")
 do
     folder=$(dirname "$i")
-    channel=$(echo `basename "$folder"` | awk '{print substr( $0, 1, length($0)-29 ) }')
+    channel=$(basename "$folder" | awk '{print substr( $0, 1, length($0)-29 ) }')
 
     if [[ -e "$folder/poster.jpg" ]]; then
         count3=$((count3+1))
