@@ -45,6 +45,7 @@ do
       cat "$j"  | jq -r '"release="+.upload_date[0:4]+"-"+.upload_date[4:6]+"-"+.upload_date[6:8]' >> show.metadata
       cat "$j"  | jq -r '"genres="+(.categories|join(","))' >> show.metadata  # For pulling the earliest episode tags only
       # jq -r '.categories|join(",")' *.json | tr '\n' ',' # For concatenating all episode tags
+      # Remove duplicates csv awk 'BEGIN{RS=ORS=","} !seen[$0]++' test2.csv
       # sed -i '$s/,$//' file # Remove trailing comma on deduplication
       count4=$((count4+1))
     fi
