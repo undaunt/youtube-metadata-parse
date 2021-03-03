@@ -6,19 +6,19 @@ format_date() {
 
 playlist_dl () {
   rm -f "$MEDIADIR/youtube/new.downloads"
-  youtube-dlc --config-location "$STORAGEDIR/config/youtube/playlists.conf" --batch-file "$STORAGEDIR/config/youtube/list_playlists.txt" --exec "touch $MEDIADIR/youtube/new.downloads"
+  yt-dlp --config-location "$STORAGEDIR/config/youtube/playlists.conf" --batch-file "$STORAGEDIR/config/youtube/list_playlists.txt" --exec "touch $MEDIADIR/youtube/new.downloads"
   playlist_check
 }
 
 playlist_reverse_dl () {
   rm -f "$MEDIADIR/youtube/new.downloads"
-  youtube-dlc --config-location "$STORAGEDIR/config/youtube/playlists.conf" --batch-file "$STORAGEDIR/config/youtube/list_reversed_playlists.txt" --exec "touch $MEDIADIR/youtube/new.downloads" --playlist-reverse
+  yt-dlp --config-location "$STORAGEDIR/config/youtube/playlists.conf" --batch-file "$STORAGEDIR/config/youtube/list_reversed_playlists.txt" --exec "touch $MEDIADIR/youtube/new.downloads" --playlist-reverse
   playlist_reverse_check
 }
 
 channel_dl () {
   rm -f "$MEDIADIR/youtube/new.downloads"
-  youtube-dlc --config-location "$STORAGEDIR/config/youtube/channels.conf" --batch-file "$STORAGEDIR/config/youtube/list_channels.txt" --exec "touch $MEDIADIR/youtube/new.downloads"
+  yt-dlp --config-location "$STORAGEDIR/config/youtube/channels.conf" --batch-file "$STORAGEDIR/config/youtube/list_channels.txt" --exec "touch $MEDIADIR/youtube/new.downloads"
   channel_check
 }
 
